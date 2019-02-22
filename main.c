@@ -1,46 +1,34 @@
 
 #include <stdio.h>  // for printf
 
-float avg = 0.0;
-float *pAvg = &avg;
-
-void change_grades(int *first, int *second, int *third){
-
-        *first = 95;
-        *second = 90;
-        *third = 75;
-
-}
-
-float avg_grades(int a, int b, int c){
-    float avg = (float) (a+b+c)/3;
-    return avg;
-}
-
 int main() {
 
-    int grade1 = 89;
-    int *pGrade1 = &grade1;
+    int myArray[10];
 
-    int grade2 = 95;
-    int *pGrade2 = &grade1;
+    int myArray_size = sizeof(myArray)/ sizeof(myArray[0]);
 
-    int grade3 = 99;
-    int *pGrade3 = &grade1;
+    for (int i = 0; i < myArray_size; i++){
+        myArray[i] = i + 1;
+    }
 
-    char *a = "a";
-    char *b = "b";
-    char *c = "c";
+    char cstring[] = "I love doing this";
 
-    printf( "%d\n%d\n%d\n\n",grade1,grade2,grade3);
+    int stringSize =  sizeof(cstring)/ sizeof(cstring[0]);
 
-    change_grades(pGrade1,pGrade2,pGrade3);
+    int intary[] = {10,20,30,40,90};
 
-    printf( "%d\n%d\n%d\n\n",grade1,grade2,grade3);
+    myArray[2]= 50;
 
-    *pAvg = avg_grades(grade1, grade2, grade3);
+    for (int i = 0; i < myArray_size; i++){
+        printf("\n%d",myArray[i]);
+    }
 
-    printf("%.2f is your average\n", avg);
+    int *ptr = myArray;
+    ptr[3] = 10;
+
+
+    printf("\n\nThe array has %d\nelements",myArray_size  );
+    printf("\nthere are %d\n characters in the sentence",stringSize  );
 
     return 0;
 }

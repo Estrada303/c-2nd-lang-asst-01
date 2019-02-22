@@ -1,6 +1,3 @@
-//
-// Created by Ivo Georgiev on 2019-02-19.
-//
 
 #include <stdio.h>  // for printf
 

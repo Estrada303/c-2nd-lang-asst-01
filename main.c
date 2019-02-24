@@ -1,44 +1,40 @@
 #include <stdio.h>  // for printf
 
-int * resize(int arr1[], int arr2[], int size){
-
-    for (int i = 0; i < size; i++) {
-        arr2[i] = arr1[i];
-    }
-    return arr2;
-}
+struct cars_owned {
+    int year;
+    char make[15];
+    char model[15];
+    char status[15];
+};
 
 
 int main() {
 
+    struct cars_owned first_car = {1989, "nissan", "sentra", "sold"};
+    struct cars_owned second_car = {2000, "ford", "mustang", "totaled"};
+    struct cars_owned third_car = {2002, "kia", "spectra", "totaled"};
 
-    int thisArray[] = {0,1,2,3,4,5,6,7,8,9};
-    int newArray[20];
+    struct cars_owned *car1_pointer = &first_car;
+    struct cars_owned *car2_pointer = &second_car;
+    struct cars_owned *car3_pointer = &third_car;
 
+    printf("\nYear: %d\nMake: %s\nModel: %s\nStatus: %s\n",
+            car1_pointer->year,
+            car1_pointer->make,
+            car1_pointer->model,
+            car1_pointer->status);
 
+    printf("\nYear: %d\nMake: %s\nModel: %s\nStatus: %s\n",
+            car2_pointer->year,
+            car2_pointer->make,
+            car2_pointer->model,
+            car2_pointer->status);
 
-    int size_array = sizeof(thisArray)/sizeof(thisArray[0]);
-    printf("\nthis array has %d elements\n", size_array);
-    for (int i = 0; i < size_array; i++){
-        printf("%d \n",thisArray[i]);
-    }
-
-
-    resize(thisArray,newArray, size_array);
-    size_array = sizeof(newArray)/sizeof(newArray[0]);
-
-    for (int i = 10; i < size_array;i++){
-        newArray[i] = i ;
-    }
-
-
-    printf("\nthe new array has %d elements\n", size_array);
-    for (int i = 0; i < size_array; i++) {
-        printf("%d \n", newArray[i]);
-    }
-
-
-
+    printf("\nYear: %d\nMake: %s\nModel: %s\nStatus: %s\n",
+            car3_pointer->year,
+            car3_pointer->make,
+            car3_pointer->model,
+            car3_pointer->status);
 
     return 0;
 }

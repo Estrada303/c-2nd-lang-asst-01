@@ -1,34 +1,44 @@
-
 #include <stdio.h>  // for printf
+
+int * resize(int arr1[], int arr2[], int size){
+
+    for (int i = 0; i < size; i++) {
+        arr2[i] = arr1[i];
+    }
+    return arr2;
+}
+
 
 int main() {
 
-    int myArray[10];
 
-    int myArray_size = sizeof(myArray)/ sizeof(myArray[0]);
+    int thisArray[] = {0,1,2,3,4,5,6,7,8,9};
+    int newArray[20];
 
-    for (int i = 0; i < myArray_size; i++){
-        myArray[i] = i + 1;
+
+
+    int size_array = sizeof(thisArray)/sizeof(thisArray[0]);
+    printf("\nthis array has %d elements\n", size_array);
+    for (int i = 0; i < size_array; i++){
+        printf("%d \n",thisArray[i]);
     }
 
-    char cstring[] = "I love doing this";
 
-    int stringSize =  sizeof(cstring)/ sizeof(cstring[0]);
+    resize(thisArray,newArray, size_array);
+    size_array = sizeof(newArray)/sizeof(newArray[0]);
 
-    int intary[] = {10,20,30,40,90};
-
-    myArray[2]= 50;
-
-    for (int i = 0; i < myArray_size; i++){
-        printf("\n%d",myArray[i]);
+    for (int i = 10; i < size_array;i++){
+        newArray[i] = i ;
     }
 
-    int *ptr = myArray;
-    ptr[3] = 10;
+
+    printf("\nthe new array has %d elements\n", size_array);
+    for (int i = 0; i < size_array; i++) {
+        printf("%d \n", newArray[i]);
+    }
 
 
-    printf("\n\nThe array has %d\nelements",myArray_size  );
-    printf("\nthere are %d\n characters in the sentence",stringSize  );
+
 
     return 0;
 }
